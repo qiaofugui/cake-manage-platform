@@ -1,6 +1,7 @@
 import { defineConfig } from 'umi';
 
 import routes from './routes';
+import layout from './layout';
 
 export default defineConfig({
   nodeModulesTransform: {
@@ -8,6 +9,7 @@ export default defineConfig({
   },
   // 配置式路由
   routes: routes,
+  layout,
   fastRefresh: {},
   // 配置开启 antd 组件库
   antd: {
