@@ -15,4 +15,12 @@ export default defineConfig({
   antd: {
     dark: false,
   },
+
+  proxy: {
+    '/api': {
+      target: 'https://api2107.h5project.cn/1.1/',
+      changeOrigin: true,
+      pathRewrite: { '^/api': '' },
+    },
+  },
 });
