@@ -18,4 +18,21 @@ export default [
       { name: '分类录入', path: '/cate/pub', component: '@/pages/cate/pub' },
     ],
   },
+  {
+    name: '轮播管理',
+    path: '/banner',
+    icon: 'fileImage',
+    routes: [
+      {
+        name: '轮播列表',
+        path: '/banner/list',
+        component: '@/pages/banner/list',
+      },
+      {
+        name: '轮播录入',
+        path: '/banner/pub',
+        component: '@/pages/banner/pub',
+      },
+    ],
+  },
 ];
