@@ -20,18 +20,22 @@ const codeMessage = {
 // 全局请求拦截
 const requestInterceptor = (url, options) => {
   return {
-    url: 'http://localhost:8000' + url, // 此处可以添加域名前缀
+    url: 'https://u5n6txrb.lc-cn-n1-shared.com/1.1' + url, // 此处可以添加域名前缀
     options: {
       ...options,
-      // headers: {
-      //   authorization: 'Bearer',
-      // },
+      // 使用 leancloud
+      headers: {
+        'X-LC-Id': 'u5N6tXrBpzSDRjzj4pAF7niP-gzGzoHsz',
+        'X-LC-Key': 'p9lTQurOvtTqJUpxlyMyNgqE',
+        'Content-Type': 'application/json',
+      },
     },
   };
 };
 // 全局响应拦截
-const responseInterceptor = (response, options) => {
-  return response;
+const responseInterceptor = async (response, options) => {
+  let res = await response.json();
+  return { data: res.results };
 };
 // 异常处理
 const errorHandler = (error) => {
