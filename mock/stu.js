@@ -18,7 +18,6 @@ export default {
   'GET /classes/stu': stuList,
   'DELETE /classes/stu': (req, res) => {
     const { id } = req.query;
-    console.log(id);
     for (let i = 0; i < stuList.data.length; i++) {
       if (stuList.data[i].id === id) {
         stuList.data.splice(i, 1);
