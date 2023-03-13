@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Form, Input, Space, Spin, message } from 'antd';
-import { cateAdd } from '@/api/coke';
+import { bannerAdd } from '@/api/coke';
 import { useRequest } from 'umi';
 import ImgUpload from '@/components/imgUpload';
 
@@ -22,7 +22,7 @@ export default function BannerPub() {
   const [form] = Form.useForm();
   const { data, loading, error, run } = useRequest(
     (values) =>
-      cateAdd(values).then((res) => {
+      bannerAdd(values).then((res) => {
         message.success('添加成功');
         onReset();
       }),
@@ -31,7 +31,6 @@ export default function BannerPub() {
     },
   );
   const onFinish = (values) => {
-    // cateAdd(values)
     run(values);
   };
   const onReset = () => {
@@ -73,7 +72,7 @@ export default function BannerPub() {
             <Input />
           </Form.Item>
           <Form.Item
-            name="bannerlink"
+            name="bannerimg"
             label="活动图片"
             rules={[
               {

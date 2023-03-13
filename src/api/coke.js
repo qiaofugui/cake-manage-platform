@@ -7,3 +7,11 @@ export const cateAdd = (cateObj) => {
     data: cateObj,
   });
 };
+
+// 新值轮播
+export const bannerAdd = (bannerObj) => {
+  return request('/classes/cakeBanner', {
+    method: 'POST',
+    data: bannerObj,
+  });
+};

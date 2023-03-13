@@ -1,6 +1,8 @@
 import { PlusOutlined, LoadingOutlined } from '@ant-design/icons';
 import { message, Upload } from 'antd';
 import { useState } from 'react';
+import Cloud from 'leancloud-storage';
+
 const getBase64 = (img, callback) => {
   // 将本地资源图片转化为 base64 编码
   const reader = new FileReader();
@@ -19,7 +21,7 @@ const beforeUpload = (file) => {
   return isJpgOrPng && isLt2M;
 };
 
-const ImgUpload = () => {
+const ImgUpload = (props) => {
   const [loading, setLoading] = useState(false);
   const [imageUrl, setImageUrl] = useState();
   // const handleChange = (info) => { // 检测 action 接口的上传进度
@@ -52,7 +54,15 @@ const ImgUpload = () => {
     // info.file 可以提取本地图片资源对象
     setLoading(true);
     getBase64(info.file, (base64) => {
-      setImageUrl(base64);
+      // 将本地资源转化为可以向 leancloud 平台提交的
+      const file = new Cloud.File('cateimg.png', { base64 });
+      // 上传图片资源
+      file.save().then((res) => {
+        // 将图片链接传给父级
+        props.onChange(res.attributes.url);
+        // 本地预览在线图片
+        setImageUrl(res.attributes.url);
+      });
       setLoading(false);
     });
   };

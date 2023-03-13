@@ -1,3 +1,6 @@
+// 初始化 leancloud 的 SDK
+import './utils/init-leancloud-sdk';
+
 const codeMessage = {
   200: '服务器成功返回请求的数据。',
   201: '新建或修改数据成功。',
