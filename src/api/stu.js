@@ -1,8 +1,17 @@
 import { request } from 'umi';
 
-export const getStuList = (params) => {
+export const stuGet = () => {
   return request('/classes/stu', {
     method: 'GET',
-    params,
+  });
+};
+
+// 删除
+export const stuDel = (id) => {
+  return request('/classes/stu', {
+    method: 'DELETE',
+    params: {
+      id,
+    },
   });
 };
