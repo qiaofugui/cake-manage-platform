@@ -77,9 +77,9 @@ const ImgUpload = (props) => {
         beforeUpload={beforeUpload}
         // onChange={handleChange}
       >
-        {imageUrl ? (
+        {imageUrl || props.img ? (
           <img
-            src={imageUrl}
+            src={imageUrl || props.img}
             alt="avatar"
             style={{
               width: '100%',
