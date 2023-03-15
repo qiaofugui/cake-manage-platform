@@ -35,4 +35,21 @@ export default [
       },
     ],
   },
+  {
+    name: '商品管理',
+    path: '/goods',
+    icon: 'shopping',
+    routes: [
+      {
+        name: '商品列表',
+        path: '/goods/list',
+        component: '@/pages/goods/list',
+      },
+      {
+        name: '商品录入',
+        path: '/goods/pub',
+        component: '@/pages/goods/pub',
+      },
+    ],
+  },
 ];
