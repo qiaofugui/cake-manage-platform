@@ -1,5 +1,7 @@
 // 初始化 leancloud 的 SDK
 import './utils/init-leancloud-sdk';
+import { history } from 'umi';
+import HeadDropMenu from './components/HeadDropMenu';
 
 const codeMessage = {
   200: '服务器成功返回请求的数据。',
@@ -69,4 +71,37 @@ export const request = {
   errorHandler,
   requestInterceptors: [requestInterceptor],
   responseInterceptors: [responseInterceptor],
+};
+
+// 初始化某些全局数据的运行时配置
+export async function getInitialState() {
+  let info = JSON.parse(localStorage.getItem('userInfo'));
+  let data = {
+    useState: {
+      isLogin: !!info,
+      userInfo: info || null,
+    },
+  };
+  return data;
+}
+
+// layout 运行时配置
+export const layout = ({ initialState }) => {
+  return {
+    onPageChange: () => {
+      const { useState } = initialState;
+      console.log(useState);
+      // 如果没有登录，重定向到 login
+      const { location } = history;
+      if (!useState.isLogin) {
+        history.push('/login');
+      }
+    },
+    // 头像
+    rightContentRender: () => (
+      <div style={{ marginTop: 15 }}>
+        <HeadDropMenu />
+      </div>
+    ),
+  };
 };

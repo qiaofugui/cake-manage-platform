@@ -1,4 +1,12 @@
 export default [
+  {
+    name: '登录',
+    path: '/login',
+    component: '@/pages/login',
+    layout: false,
+    hideInMenu: true,
+  },
+
   { name: '首页', path: '/', component: '@/pages/index', icon: 'home' },
   {
     name: '学员管理',
@@ -51,5 +59,14 @@ export default [
         component: '@/pages/goods/pub',
       },
     ],
+  },
+  {
+    name: '404',
+    path: '*',
+    component: '@/pages/404',
+    menuRender: true,
+    menuHeaderRender: true,
+    hideInMenu: true,
+    hideInBreadcrumb: true,
   },
 ];
