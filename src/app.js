@@ -90,7 +90,6 @@ export const layout = ({ initialState }) => {
   return {
     onPageChange: () => {
       const { useState } = initialState;
-      console.log(useState);
       // 如果没有登录，重定向到 login
       const { location } = history;
       if (!useState.isLogin) {

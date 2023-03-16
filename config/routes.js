@@ -61,6 +61,22 @@ export default [
     ],
   },
   {
+    name: '状态管理',
+    path: '/dva',
+    routes: [
+      {
+        name: 'ComponentA',
+        path: '/dva/componentA',
+        component: '@/pages/testdva/ComponentA',
+      },
+      {
+        name: 'ComponentB',
+        path: '/dva/componentB',
+        component: '@/pages/testdva/ComponentB',
+      },
+    ],
+  },
+  {
     name: '404',
     path: '*',
     component: '@/pages/404',

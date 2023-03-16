@@ -23,4 +23,9 @@ export default defineConfig({
       pathRewrite: { '^/api': '' },
     },
   },
+
+  // 启用 dva
+  dva: {
+    immer: false,
+  },
 });
