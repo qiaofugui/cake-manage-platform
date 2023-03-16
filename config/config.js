@@ -26,6 +26,6 @@ export default defineConfig({
 
   // 启用 dva
   dva: {
-    immer: false,
+    immer: true,
   },
 });

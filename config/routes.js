@@ -74,6 +74,11 @@ export default [
         path: '/dva/componentB',
         component: '@/pages/testdva/ComponentB',
       },
+      {
+        name: 'Notice',
+        path: '/dva/notice',
+        component: '@/pages/testdva/Notice',
+      },
     ],
   },
   {
