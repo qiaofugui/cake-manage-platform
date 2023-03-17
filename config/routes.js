@@ -116,6 +116,12 @@ export default [
     ],
   },
   {
+    name: '配送区域',
+    path: '/area',
+    icon: 'HeatMapOutlined',
+    component: '@/pages/area/index',
+  },
+  {
     name: '404',
     path: '*',
     component: '@/pages/404',
