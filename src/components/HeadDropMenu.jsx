@@ -61,7 +61,7 @@ const HeadDropMenu = (props) => {
         </Badge>
       }
     >
-      {userInfo.username}
+      {userInfo?.username}
     </Dropdown.Button>
   );
 };

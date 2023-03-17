@@ -9,6 +9,12 @@ export default [
 
   { name: '首页', path: '/', component: '@/pages/index', icon: 'home' },
   {
+    name: '数据统计',
+    path: '/data',
+    component: '@/pages/data',
+    icon: 'AreaChartOutlined',
+  },
+  {
     name: '学员管理',
     path: '/stu',
     icon: 'team',
@@ -63,6 +69,7 @@ export default [
   {
     name: '状态管理',
     path: '/dva',
+    icon: 'ThunderboltOutlined',
     routes: [
       {
         name: 'ComponentA',
@@ -78,6 +85,23 @@ export default [
         name: 'Notice',
         path: '/dva/notice',
         component: '@/pages/testdva/Notice',
+      },
+    ],
+  },
+  {
+    name: '系统设置',
+    path: '/sys',
+    icon: 'SettingOutlined',
+    routes: [
+      {
+        name: '角色管理',
+        path: '/sys/role',
+        component: '@/pages/system/RoleManager',
+      },
+      {
+        name: '账号管理',
+        path: '/sys/user',
+        component: '@/pages/system/UserManager',
       },
     ],
   },

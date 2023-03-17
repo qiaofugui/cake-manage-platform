@@ -64,7 +64,7 @@ const errorHandler = (error) => {
 };
 
 export const request = {
-  timeout: 1000,
+  timeout: 2000,
   errorConfig: {},
   middlewares: [],
   // 异常处理
