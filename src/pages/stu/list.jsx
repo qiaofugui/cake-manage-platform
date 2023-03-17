@@ -12,11 +12,14 @@ import {
   DatePicker,
 } from 'antd';
 import { stuGet, stuDel, stuUpdate } from '@/api/stu';
-import { useRequest } from 'umi';
+import { useRequest, useAccess } from 'umi';
 import Edit from './edit';
 import city from '@/utils/city';
 
 export default function StuList() {
+  let access = useAccess();
+  console.log(access);
+
   const [data1, setData] = useState([]);
   const [form] = Form.useForm();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -114,11 +117,17 @@ export default function StuList() {
               form.setFieldsValue(obj);
               setObjectId(h.objectId);
             }}
+            disabled={!access.isRoot}
           >
             编辑
           </Button>
           <Popconfirm title="确定删除？" onConfirm={() => handleOk(h.objectId)}>
-            <Button type="primary" size="small" danger>
+            <Button
+              type="primary"
+              size="small"
+              danger
+              disabled={!access.isRoot}
+            >
               删除
             </Button>
           </Popconfirm>
