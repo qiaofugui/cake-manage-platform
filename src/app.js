@@ -77,7 +77,7 @@ export const request = {
 export async function getInitialState() {
   let info = JSON.parse(localStorage.getItem('userInfo'));
   let data = {
-    useState: {
+    userState: {
       isLogin: !!info,
       userInfo: info || null,
     },
@@ -89,10 +89,10 @@ export async function getInitialState() {
 export const layout = ({ initialState }) => {
   return {
     onPageChange: () => {
-      const { useState } = initialState;
+      const { userState } = initialState;
       // 如果没有登录，重定向到 login
       const { location } = history;
-      if (!useState.isLogin) {
+      if (!userState.isLogin) {
         history.push('/login');
       }
     },

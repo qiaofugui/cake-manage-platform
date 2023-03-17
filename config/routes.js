@@ -13,6 +13,7 @@ export default [
     path: '/data',
     component: '@/pages/data',
     icon: 'AreaChartOutlined',
+    access: 'isRoot',
   },
   {
     name: '学员管理',
@@ -27,15 +28,22 @@ export default [
     name: '分类管理',
     path: '/cate',
     icon: 'bars',
+    access: 'isAdmin',
     routes: [
       { name: '分类列表', path: '/cate/list', component: '@/pages/cate/list' },
-      { name: '分类录入', path: '/cate/pub', component: '@/pages/cate/pub' },
+      {
+        name: '分类录入',
+        path: '/cate/pub',
+        component: '@/pages/cate/pub',
+        access: 'isRoot',
+      },
     ],
   },
   {
     name: '轮播管理',
     path: '/banner',
     icon: 'fileImage',
+    access: 'isAdmin',
     routes: [
       {
         name: '轮播列表',
@@ -53,6 +61,7 @@ export default [
     name: '商品管理',
     path: '/goods',
     icon: 'shopping',
+    access: 'isAdmin',
     routes: [
       {
         name: '商品列表',
@@ -92,6 +101,7 @@ export default [
     name: '系统设置',
     path: '/sys',
     icon: 'SettingOutlined',
+    access: 'isRoot',
     routes: [
       {
         name: '角色管理',

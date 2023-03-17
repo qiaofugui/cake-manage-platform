@@ -21,6 +21,14 @@ export const roleGet = () => {
   });
 };
 
+// 角色新增
+export const roleAdd = (roleObj) => {
+  return request('/classes/cakeRole', {
+    method: 'POST',
+    data: roleObj,
+  });
+};
+
 // 账号分配 携带 role 角色
 export const userReg = (userObj) => {
   return request('/users', {

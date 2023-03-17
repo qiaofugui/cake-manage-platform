@@ -13,7 +13,7 @@ const Login = () => {
     userLogin(values).then((res) => {
       localStorage.setItem('userInfo', JSON.stringify(res.data));
       setInitialState({
-        useState: {
+        userState: {
           isLoading: true,
           userInfo: res.data,
         },
