@@ -61,3 +61,22 @@ export const goodsExchange = (cakeList, values) => {
     data: batchObj,
   });
 };
+
+// 配送范围
+export const areaAdd = (areaObj) => {
+  return request('/classes/cakeArea', {
+    method: 'POST',
+    data: areaObj,
+  });
+};
+export const areaGet = (city) => {
+  return request(`/classes/cakeArea?where={"city":"${city}"}`, {
+    method: 'GET',
+  });
+};
+export const areaUpdate = (objectId, areaObj) => {
+  return request(`/classes/cakeArea/${objectId}`, {
+    method: 'PUT',
+    data: areaObj,
+  });
+};
