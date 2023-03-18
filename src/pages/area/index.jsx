@@ -32,6 +32,23 @@ export default function Area() {
       zoom: 10,
     });
 
+    areaGet('洛阳市').then((res) => {
+      res.data.forEach((item) => {
+        var polygon = new AMap.Polygon({
+          //多边形区域对象
+          path: item.path,
+          strokeColor: '#FF33FF',
+          strokeWeight: 6,
+          strokeOpacity: 0.2,
+          fillOpacity: 0.4,
+          fillColor: '#1791fc',
+          zIndex: 50,
+        });
+
+        map.add(polygon); //将多边形绘制到地图中
+      });
+    });
+
     mouseTool = new AMap.MouseTool(map);
 
     mouseTool.on('draw', function (event) {
